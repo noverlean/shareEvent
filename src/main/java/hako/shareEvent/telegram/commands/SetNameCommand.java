@@ -1,6 +1,5 @@
 package hako.shareEvent.telegram.commands;
 
-import hako.shareEvent.entities.User;
 import hako.shareEvent.services.UserService;
 import hako.shareEvent.telegram.ChatContext;
 import hako.shareEvent.telegram.Command;
@@ -14,14 +13,14 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 
 @Component
-public class SelectCityCommand implements Command {
+public class SetNameCommand implements Command {
 
     private ReplyKeyboardMarkup keyboard;
     private final KeyboardGenerator keyboardGenerator;
 
     private final UserService userService;
 
-    public SelectCityCommand(@Autowired UserService userService,
+    public SetNameCommand(@Autowired UserService userService,
                         @Autowired KeyboardGenerator keyboardGenerator
     ){
         this.userService = userService;
@@ -32,12 +31,10 @@ public class SelectCityCommand implements Command {
 
     public SendMessage apply(Update update) {
         long chatId = update.getMessage().getChatId();
-        String name = update.getMessage().getText();
         
-        User user = userService.getUser(chatId);
-        user.setName(name);
-        userService.save(user);
-        
+        userService.createNewUser(chatId);
+        userService.setChatContext(chatId, ChatContext.SELECT_CITY);
+
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(String.valueOf(chatId));
         sendMessage.setText(Consts.START_MESSAGE);
@@ -47,7 +44,7 @@ public class SelectCityCommand implements Command {
     }
 
     private ReplyKeyboardMarkup generateKeyboard() {
-        String markup = "Меню";
+        String markup = "";
 
         return keyboardGenerator.generateReplyMarkup(markup);
     }

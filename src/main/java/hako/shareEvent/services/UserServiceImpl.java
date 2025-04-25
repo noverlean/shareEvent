@@ -1,5 +1,7 @@
 package hako.shareEvent.services;
 
+import java.time.LocalDateTime;
+
 import hako.shareEvent.entities.User;
 import hako.shareEvent.exceptions.custom.ChatIdNotFoundException;
 import hako.shareEvent.repositories.UserRepository;
@@ -17,7 +19,7 @@ public class UserServiceImpl implements UserService {
             
         // }
 
-        User user = new User().setChat_id(chatId);
+        User user = new User().setChat_id(chatId).setRegisteredAt(LocalDateTime.now());
         userRepository.save(user);
     }
 
@@ -33,4 +35,8 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
     
+    public void save(User user)
+    {
+        userRepository.save(user);
+    }
 }

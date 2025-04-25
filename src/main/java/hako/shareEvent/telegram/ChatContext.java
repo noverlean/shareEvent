@@ -4,6 +4,7 @@ public enum ChatContext {
     START,
 
     SELECT_CITY,
+    SET_NAME,
 
     CREATE_EVENT,
     SET_EVENT_CITY,

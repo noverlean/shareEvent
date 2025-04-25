@@ -7,11 +7,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
-    @ExceptionHandler(BadCredentialsException.class)
-    public ResponseEntity<String> handleBadCredentialsException(BadCredentialsException e) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-    }
-
     @ExceptionHandler(CustomException.class)
     public ResponseEntity<String> handleCustomException(CustomException e) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());

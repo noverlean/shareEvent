@@ -36,6 +36,11 @@ databaseChangeLog:
                   type: timestamp
                   constraints:
                     nullable: false
+              - column:
+                  name: chat_context
+                  type: varchar(63)
+                  constraints:
+                    nullable: false
               - createIndex:
                   clustered: true
                   columns:
