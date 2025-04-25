@@ -1,0 +1,47 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-users-table
+      author: noverlin
+      changes:
+        - createTable:
+            tableName: users
+            schemaName: events
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: city_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_user_city
+                    references: cities(id)
+              - column:
+                  name: chat_id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: registered_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - createIndex:
+                  clustered: true
+                  columns:
+                      - column:
+                          name: city_id
+                  indexName: idx_city
+                  schemaName: events
+                  tableName: users
+              

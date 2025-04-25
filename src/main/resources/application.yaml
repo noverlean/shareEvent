@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: shareEvent
+  main:
+    banner-mode: off
+  datasource:
+    url: jdbc:postgresql://localhost:5432/share_event_db
+    username: root
+    password: root
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 1
+      auto-commit: false
+  jpa:
+    show-sql: true
+    default-database: share_event_db
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate.default_schema: events
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+  liquibase:
+    default-schema: events
+    change-log: db/changelog/master.yaml
+    database-change-log-table: _databasechangelog
+    database-change-log-lock-table: _databasechangeloglock
+
+bot:
+  name: "share_event_bot"
+  token: "7581286718:AAF8BL5RgYxCHw6ImurrWALsd_QiqS7ew0g"

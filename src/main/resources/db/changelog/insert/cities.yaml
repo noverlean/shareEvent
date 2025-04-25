@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-cities-table
+      author: noverlin
+      changes:
+        - insert:
+            tableName: cities
+            columns:
+            - column:
+                name: name
+                value: Minsk
+        - insert:
+            tableName: cities
+            columns:
+            - column:
+                name: name
+                value: Vitebsk
+        - insert:
+            tableName: cities
+            columns:
+            - column:
+                name: name
+                value: Hrodno
+        - insert:
+            tableName: cities
+            columns:
+            - column:
+                name: name
+                value: Gomel
+        - insert:
+            tableName: cities
+            columns:
+            - column:
+                name: name
+                value: Mogilev
+        - insert:
+            tableName: cities
+            columns:
+            - column:
+                name: name
+                value: Brest

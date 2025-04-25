@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - include:
+      file: create/cities.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: create/events.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: create/users.yaml
+      relativeToChangelogFile: true
+
+  - include:
+      file: insert/cities.yaml
+      relativeToChangelogFile: true
