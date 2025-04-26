@@ -1,9 +1,6 @@
 package hako.shareEvent.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.ToString;
 
@@ -13,6 +10,7 @@ import lombok.ToString;
 @Table(name = "cities")
 public class City {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 

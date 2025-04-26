@@ -5,7 +5,7 @@ databaseChangeLog:
       changes:
         - createTable:
             tableName: cities
-            schemaName: events
+            schemaName: public
             columns:
               - column:
                   name: id

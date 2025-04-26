@@ -7,8 +7,10 @@ import hako.shareEvent.exceptions.custom.ChatIdNotFoundException;
 import hako.shareEvent.repositories.UserRepository;
 import hako.shareEvent.telegram.ChatContext;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
+@Service
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
@@ -17,9 +19,9 @@ public class UserServiceImpl implements UserService {
     public void createNewUser(Long chatId) {
         // if (userRepository.findByChatId(chatId).isPresent()) {
             
-        // }
+        // } //todo
 
-        User user = new User().setChat_id(chatId).setRegisteredAt(LocalDateTime.now());
+        User user = new User().setChatId(chatId).setRegisteredAt(LocalDateTime.now());
         userRepository.save(user);
     }
 

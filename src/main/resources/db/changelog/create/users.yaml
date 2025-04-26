@@ -5,7 +5,7 @@ databaseChangeLog:
       changes:
         - createTable:
             tableName: users
-            schemaName: events
+            schemaName: public
             columns:
               - column:
                   name: id
@@ -47,6 +47,6 @@ databaseChangeLog:
                       - column:
                           name: city_id
                   indexName: idx_city
-                  schemaName: events
+                  schemaName: public
                   tableName: users
               

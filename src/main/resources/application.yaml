@@ -17,15 +17,16 @@ spring:
     default-database: share_event_db
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
     properties:
-      hibernate.default_schema: events
+
+      hibernate.default_schema: public
       hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
   liquibase:
-    default-schema: events
+    default-schema: public
     change-log: db/changelog/master.yaml
-    database-change-log-table: _databasechangelog
-    database-change-log-lock-table: _databasechangeloglock
+    databaseChangeLogTable: databasechangelog
+    databaseChangeLogLockTable: databasechangeloglock
 
 bot:
   name: "share_event_bot"
